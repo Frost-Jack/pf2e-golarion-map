@@ -18,21 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Download map snapshot
-        run: |
-          python - <<'PY'
-          import json, shutil, urllib.request
-          from pathlib import Path
-          assets = Path('assets/map')
-          snapshot = json.loads((assets / 'snapshot.json').read_text())
-          target = assets / 'golarion.pmtiles'
-          request = urllib.request.Request(snapshot['Source'] + target.name, headers={
-              'User-Agent': 'PF2e-Golarion-Map/1.0 (https://github.com/Frost-Jack/pf2e-golarion-map)'
-          })
-          with urllib.request.urlopen(request, timeout=120) as response, target.open('wb') as output:
-              shutil.copyfileobj(response, output)
-          if target.stat().st_size != snapshot['PMTilesBytes']:
-              raise RuntimeError('Map download is incomplete: unexpected file size')
-          PY
+        run: python tools/download_map.py
       - name: Set release manifest
         env:
           REPOSITORY: ${{ github.repository }}

@@ -74,12 +74,14 @@ Does something, probably
 
 `assets/map/golarion.pmtiles` is kept outside Git because the map snapshot is about 1.8 GB. It remains on disk for local use. The release workflow downloads the pinned snapshot specified in `assets/map/snapshot.json` before creating `module.zip`, so the installable module includes the map and works offline.
 
-After cloning the repository, download the map for local development from PowerShell:
+After cloning the repository, download the map for local development with Python 3.11 or newer:
 
 ```powershell
-curl.exe --fail --location --retry 3 --user-agent "PF2e-Golarion-Map/1.0 (https://github.com/Frost-Jack/pf2e-golarion-map)" --output assets/map/golarion.pmtiles https://map.pathfinderwiki.com/1792713477/golarion.pmtiles
+python tools/download_map.py
 ```
 
 Install the module from a release's `module.json`; a source-code ZIP does not include the map archive.
+
+The downloader requests 16 MiB ranges, retries incomplete responses, and checks each Content-Range plus the final file size and SHA256 from snapshot.json. It replaces the local map only after verification. A failed download leaves the previous map intact and reports the received response details in the build log.
 
 To rebuild an existing release after fixing the workflow, open Actions, select Create module release, and use Run workflow on the updated default branch. Enter the existing tag in `release_tag`. This updates that release's module.json and module.zip using the corrected workflow.

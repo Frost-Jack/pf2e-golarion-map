@@ -4,5 +4,6 @@
   "Retrieved": "2026-10-23",
   "PMTilesBytes": 1800346077,
   "TimeSlices": 17,
-  "FontFiles": 256
+  "FontFiles": 256,
+  "PMTilesSHA256": "2dbbf6e594c790ffa70a3b40684a94872ffb5015427f33a1588c91ebe261b0bd"
 }
