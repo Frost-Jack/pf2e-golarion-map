@@ -1,0 +1,32 @@
+PathfinderWiki Golarion map snapshot
+
+Source project: https://github.com/pf-wikis/mapping
+Public map: https://map.pathfinderwiki.com/
+Snapshot: https://map.pathfinderwiki.com/1792713477/
+Retrieved: 2026-10-23
+License: CC BY-NC-SA 4.0; see LICENSE.
+Acknowledgments: https://github.com/pf-wikis/mapping#acknowledgments
+
+This mapping project uses trademarks and/or copyrights owned by Paizo
+Inc., used under Paizo's Community Use Policy
+(https://paizo.com/licenses/communityuse). We are expressly prohibited
+from charging you to use or access this content. This mapping project
+is not published, endorsed, or specifically approved by Paizo.
+For more information about Paizo Inc. and Paizo products, visit paizo.com.
+
+The original mapping data includes contributions by John Mechalas,
+Oznogon, the PathfinderWiki mapping project, and PathfinderWiki editors.
+See the source project's acknowledgments and commit history for credits.
+
+Contents: golarion.pmtiles, style.json, search.json, sprite atlases,
+location descriptions in extra/, and NotoSans-Medium glyph ranges.
+The three external resource URLs in style.json were changed to relative
+local paths. time-slices.json contains the project's generated timeMeta.ts
+data as JSON. snapshot.json records the snapshot version and file size.
+descriptions-index.json maps the snapshot's place headings to extra/ feature
+IDs, preferring a record with a descriptive paragraph over a heading alone.
+
+Noto Sans: Copyright The Noto Project Authors. Licensed under the SIL
+Open Font License 1.1; see fonts/LICENSE.
+
+Russian place-name dictionary (names-ru.json): see names-ru-sources.md for the PF2e Russian translation project, goblin box, pf2.ru toponym catalogue and Kingmaker localization references, per-entry provenance and rights notices. See names-ru-editorial.md for editorial translations, practical transcriptions and corrections. All 4011 distinct names in this snapshot's search catalogue are covered; this is not a claim of fully official localization. This added dictionary is separate from the PathfinderWiki map snapshot.

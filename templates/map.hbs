@@ -1,0 +1,45 @@
+<div class="golarion-body">
+  <nav class="golarion-toolbar" aria-label="{{localize 'GOLARION.Controls'}}">
+    <button type="button" data-action="home" disabled>
+      <i class="fa-solid fa-house" aria-hidden="true"></i> {{localize 'GOLARION.Home'}}
+    </button>
+    <button type="button" data-action="projection" aria-pressed="false" title="{{localize 'GOLARION.ProjectionHint'}}">
+      <i class="fa-solid fa-globe" aria-hidden="true"></i> {{localize 'GOLARION.Globe'}}
+    </button>
+    {{#if isGM}}
+    <button type="button" data-action="setHome" aria-pressed="false" title="{{localize 'GOLARION.SetHomeHint'}}">
+      <i class="fa-solid fa-location-dot" aria-hidden="true"></i> {{localize 'GOLARION.SetHome'}}
+    </button>
+    {{/if}}
+    <div class="golarion-search"></div>
+    <div class="golarion-options">
+      <div class="golarion-year">
+        <label for="golarion-year">{{localize 'GOLARION.Year'}}</label>
+        <input id="golarion-year" name="year" type="number" min="-100000" max="100000" step="1" aria-label="{{localize 'GOLARION.Year'}}">
+        <span>{{localize 'GOLARION.AR'}}</span>
+        <small class="golarion-year-source"></small>
+      </div>
+      <button type="button" class="golarion-language" data-action="language" role="switch" aria-checked="false" aria-label="{{localize 'GOLARION.MapLanguage'}}" title="{{localize 'GOLARION.MapLanguage'}}">
+        <span class="golarion-language-en" aria-hidden="true">EN</span>
+        <span class="golarion-language-track" aria-hidden="true"></span>
+        <span class="golarion-language-ru" aria-hidden="true">RU</span>
+      </button>
+    </div>
+  </nav>
+  <div class="golarion-viewport">
+    <div class="golarion-map" role="region" aria-label="{{localize 'GOLARION.Title'}}"></div>
+    <p class="golarion-pick-hint" hidden>{{localize 'GOLARION.PickPoint'}}</p>
+    <div class="golarion-status" role="status" aria-live="polite">
+      <p>{{localize 'GOLARION.Loading'}}</p>
+      <button type="button" data-action="retry" hidden><i class="fa-solid fa-rotate-right" aria-hidden="true"></i> {{localize 'GOLARION.Retry'}}</button>
+    </div>
+  </div>
+  <footer class="golarion-footer">
+    <span class="golarion-credits">
+      <a href="https://maplibre.org/" target="_blank" rel="noopener noreferrer">MapLibre</a> ·
+      <a href="https://paizo.com/licenses/communityuse" target="_blank" rel="noopener noreferrer">Paizo CUP</a> ·
+      <a href="https://github.com/pf-wikis/mapping#acknowledgments" target="_blank" rel="noopener noreferrer">{{localize 'GOLARION.Credits'}}</a>
+    </span>
+    <a href="https://map.pathfinderwiki.com/" target="_blank" rel="noopener noreferrer">PathfinderWiki <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+  </footer>
+</div>

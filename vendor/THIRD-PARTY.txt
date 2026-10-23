@@ -1,0 +1,21 @@
+Bundled browser dependencies
+
+MapLibre GL JS 6.4.0
+Source: https://github.com/maplibre/maplibre-gl-js/tree/v6.4.0
+Distribution: https://unpkg.com/maplibre-gl@6.4.0/dist/
+License: BSD-3-Clause; see maplibre-LICENSE.txt.
+Files: maplibre-gl.mjs, maplibre-gl-shared.mjs,
+maplibre-gl-worker.mjs, maplibre-gl.css. Unmodified distribution files.
+
+PMTiles 4.5.0
+Source: https://github.com/protomaps/PMTiles
+Distribution: https://cdn.jsdelivr.net/npm/pmtiles@4.5.0/+esm
+License: BSD-3-Clause; see pmtiles-LICENSE.
+The fflate import was changed to ./fflate.mjs for local loading.
+
+fflate 0.8.3
+Source: https://github.com/101arrowz/fflate
+Distribution: https://cdn.jsdelivr.net/npm/fflate@0.8.3/+esm
+License: MIT; see fflate-LICENSE.
+
+All files retrieved on 2026-10-23. No external CDN is required at runtime.

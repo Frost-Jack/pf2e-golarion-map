@@ -1,33 +1,39 @@
 {
-  "id": "module",
-  "title": "New Module",
-  "description": "",
-  "version": "#{VERSION}#",
-  "library": "false",
-  "manifestPlusVersion": "1.2.0",
+  "id": "pf2e-golarion-map",
+  "title": "PF2e Golarion Map",
+  "description": "PathfinderWiki's interactive Golarion map with PF2e styling, a shared party location, personal cameras and optional Calendaria integration.",
+  "version": "1.0.0",
   "compatibility": {
-    "minimum": 10,
-    "verified": 10,
-    "maximum": 11
+    "minimum": "13",
+    "verified": "13.351",
+    "maximum": "13"
   },
   "authors": [
     {
-      "name": "The League of Extraordinary FVTT Developers",
-      "url": "https://github.com/League-of-Foundry-Developers",
-      "discord": "discordID#0001"
+      "name": "Frost-Jack",
+      "url": "https://github.com/Frost-Jack"
     }
   ],
   "relationships": {
-    "systems": [],
-    "requires": []
+    "systems": [
+      {
+        "id": "pf2e",
+        "type": "system"
+      }
+    ],
+    "recommends": [
+      {
+        "id": "calendaria",
+        "type": "module",
+        "manifest": "https://github.com/Sayshal/Calendaria/releases/latest/download/module.json"
+      }
+    ]
   },
   "esmodules": [
     "scripts/module.js"
   ],
-  "scripts": [
-    "scripts/lib/lib.js"
-  ],
   "styles": [
+    "vendor/maplibre-gl.css",
     "styles/module.css"
   ],
   "languages": [
@@ -35,17 +41,16 @@
       "lang": "en",
       "name": "English",
       "path": "languages/en.json"
+    },
+    {
+      "lang": "ru",
+      "name": "Русский",
+      "path": "languages/ru.json"
     }
   ],
-  "url": "#{URL}#",
-  "manifest": "#{MANIFEST}#",
-  "download": "#{DOWNLOAD}#",
+  "url": "https://github.com/Frost-Jack/pf2e-golarion-map",
+  "manifest": "https://github.com/Frost-Jack/pf2e-golarion-map/releases/latest/download/module.json",
+  "download": "https://github.com/Frost-Jack/pf2e-golarion-map/releases/download/1.0.0/module.zip",
   "license": "LICENSE",
-  "readme": "README.md",
-  "media": [
-    {
-      "type": "icon",
-      "url": "https://avatars2.githubusercontent.com/u/71292812?s=400&u=ccdb4eeb7abf551ca8f314e5a9bfd0479a4d3d41&v=4"
-    }
-  ]
+  "readme": "README.md"
 }

@@ -69,3 +69,15 @@ Clicking "Save" in the bottom right will save the new version, which means that 
 Does something, probably
 
 ## Changelog
+
+## Large map archive
+
+`assets/map/golarion.pmtiles` is kept outside Git because the map snapshot is about 1.8 GB. It remains on disk for local use. The release workflow downloads the pinned snapshot specified in `assets/map/snapshot.json` before creating `module.zip`, so the installable module includes the map and works offline.
+
+After cloning the repository, download the map for local development from PowerShell:
+
+```powershell
+curl.exe --fail --location --retry 3 --output assets/map/golarion.pmtiles https://map.pathfinderwiki.com/1792713477/golarion.pmtiles
+```
+
+Install the module from a release's `module.json`; a source-code ZIP does not include the map archive.
