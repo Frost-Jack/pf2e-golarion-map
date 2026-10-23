@@ -77,7 +77,9 @@ Does something, probably
 After cloning the repository, download the map for local development from PowerShell:
 
 ```powershell
-curl.exe --fail --location --retry 3 --output assets/map/golarion.pmtiles https://map.pathfinderwiki.com/1792713477/golarion.pmtiles
+curl.exe --fail --location --retry 3 --user-agent "PF2e-Golarion-Map/1.0 (https://github.com/Frost-Jack/pf2e-golarion-map)" --output assets/map/golarion.pmtiles https://map.pathfinderwiki.com/1792713477/golarion.pmtiles
 ```
 
 Install the module from a release's `module.json`; a source-code ZIP does not include the map archive.
+
+To rebuild an existing release after fixing the workflow, open Actions, select Create module release, and use Run workflow on the updated default branch. Enter the existing tag in `release_tag`. This updates that release's module.json and module.zip using the corrected workflow.

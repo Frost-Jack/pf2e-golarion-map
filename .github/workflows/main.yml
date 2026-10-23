@@ -2,11 +2,19 @@ name: Create module release
 on:
   release:
     types: [published]
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Existing release tag to rebuild
+        required: true
+        type: string
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      RELEASE_TAG: ${{ github.event.release.tag_name || inputs.release_tag }}
     steps:
       - uses: actions/checkout@v4
       - name: Download map snapshot
@@ -17,14 +25,16 @@ jobs:
           assets = Path('assets/map')
           snapshot = json.loads((assets / 'snapshot.json').read_text())
           target = assets / 'golarion.pmtiles'
-          with urllib.request.urlopen(snapshot['Source'] + target.name, timeout=120) as response, target.open('wb') as output:
+          request = urllib.request.Request(snapshot['Source'] + target.name, headers={
+              'User-Agent': 'PF2e-Golarion-Map/1.0 (https://github.com/Frost-Jack/pf2e-golarion-map)'
+          })
+          with urllib.request.urlopen(request, timeout=120) as response, target.open('wb') as output:
               shutil.copyfileobj(response, output)
           if target.stat().st_size != snapshot['PMTilesBytes']:
               raise RuntimeError('Map download is incomplete: unexpected file size')
           PY
       - name: Set release manifest
         env:
-          RELEASE_TAG: ${{ github.event.release.tag_name }}
           REPOSITORY: ${{ github.repository }}
         run: |
           python - <<'PY'
@@ -45,5 +55,5 @@ jobs:
         with:
           allowUpdates: true
           artifacts: module.json,module.zip
-          tag: ${{ github.event.release.tag_name }}
+          tag: ${{ env.RELEASE_TAG }}
           omitBodyDuringUpdate: true
